@@ -7,11 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        BeerService.shared.requestSomething(completion: { result, error in
+            print("error: \(error)")
+            print("result: \(result)")
+        })
     }
 
 
