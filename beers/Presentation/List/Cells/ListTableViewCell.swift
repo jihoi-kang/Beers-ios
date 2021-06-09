@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +23,15 @@ class ListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func bind(beer: Beer) {
+        if let url = URL(string: beer.imageUrl) {
+            thumbImageView.sd_setImage(with: url, completed: nil)
+        }
+        
+        nameLabel.text = beer.name
+        descriptionLabel.text = beer.description
     }
 
 }

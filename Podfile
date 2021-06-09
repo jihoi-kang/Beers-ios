@@ -13,6 +13,9 @@ target 'beers' do
   # Rx
   pod 'RxSwift'
 
+  # Image
+  pod 'SDWebImage'
+
   target 'beersTests' do
     inherit! :search_paths
     # Pods for testing

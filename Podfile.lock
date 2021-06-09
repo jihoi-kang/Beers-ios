@@ -1,20 +1,26 @@
 PODS:
   - Alamofire (5.4.3)
   - RxSwift (6.2.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
   - Alamofire
   - RxSwift
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - RxSwift
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 347450fb1ba9f675dd2be7ea14644922780d1e61
+PODFILE CHECKSUM: 0fa5d7775cc9b4e684894a987bbaba82bf6d049c
 
 COCOAPODS: 1.10.1
