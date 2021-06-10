@@ -6,39 +6,39 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ListViewController: UIViewController {
 
+    // MARK: - View
     @IBOutlet weak var tableView: UITableView!
+
+    let disposeBag: DisposeBag = DisposeBag()
+    var viewModel: ListViewModel = ListViewModel(beerServiceType: BeerService())
     
     var beers: [Beer] = [Beer]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.start()
+        
+        setupUi()
+        setupObserve()
+    }
+    
+    private func setupUi() {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchBeers()
-    }
     
-    private func fetchBeers() {
-        BeerService.shared.requestSomething(completion: { [weak self] result, error in
-            guard let strongSelf = self,
-                let fetchedBeers = result,
-                  error == nil else {
-                print("Error occured!")
-                return
-            }
-            
-            fetchedBeers.map({ beer in
-                strongSelf.beers.append(beer)
-            })
-            
-            strongSelf.tableView.reloadData()
-        })
+    private func setupObserve() {
+        viewModel.beers
+            .asDriver()
+            .drive(onNext: { [weak self] beers in
+                self?.beers = beers
+                self?.tableView.reloadData()
+            }).disposed(by: disposeBag)
     }
 
 }

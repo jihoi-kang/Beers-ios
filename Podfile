@@ -11,7 +11,7 @@ target 'beers' do
   pod 'Alamofire'
 
   # Rx
-  pod 'RxSwift'
+  pod 'RxCocoa'
 
   # Image
   pod 'SDWebImage'

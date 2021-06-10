@@ -7,8 +7,9 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
-struct BeerService {
+final class BeerService: BeerServiceType {
     
     // MARK: - Singleton
     static let shared = BeerService()
@@ -17,20 +18,22 @@ struct BeerService {
     private let baseUrl = "https://api.punkapi.com"
     
     // MARK: - Services
-    func requestSomething(completion: @escaping ([Beer]?, Error?) -> ()) {
-        print("passed!")
-        let url = "\(baseUrl)/v2/beers?page=1&per_page=20"
-        AF.request(url)
-            .validate()
-            .responseDecodable(of: [Beer].self) { response in
-                print("passed #2 \(response)")
-                guard let beers = response.value else {
-                    completion(nil, response.error)
-                    return
-                }
-                
-                completion(beers, nil)
-            }
+    func getBeers(page: Int, perPage: Int) -> Single<[Beer]> {
+        let url = "\(baseUrl)/v2/beers?page=\(page)&per_page=\(perPage)"
+        return Single<[Beer]>.create(subscribe: { observer in
+            AF.request(url)
+                .validate()
+                .responseDecodable(of: [Beer].self, completionHandler: { response in
+                    switch response.result {
+                    case .success(let data):
+                        observer(.success(data))
+                    case .failure(let error):
+                        observer(.failure(error))
+                    }
+                })
+            
+            return Disposables.create()
+        })
     }
     
 }

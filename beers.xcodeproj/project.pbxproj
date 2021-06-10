@@ -21,6 +21,8 @@
 		E221379E267056280039829D /* BeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221379D267056280039829D /* BeerService.swift */; };
 		E22137A3267060DE0039829D /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22137A2267060DE0039829D /* Beer.swift */; };
 		E22137A726708D560039829D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22137A626708D560039829D /* ListTableViewCell.swift */; };
+		E271FBC22671E5DB00C88AC2 /* BeerServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */; };
+		E271FBC72671F5A600C88AC2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC62671F5A600C88AC2 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		E221379D267056280039829D /* BeerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerService.swift; sourceTree = "<group>"; };
 		E22137A2267060DE0039829D /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		E22137A626708D560039829D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServiceType.swift; sourceTree = "<group>"; };
+		E271FBC62671F5A600C88AC2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		E738147930E1C8261EFC329A /* Pods_beers_beersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beers_beersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				E221379D267056280039829D /* BeerService.swift */,
+				E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			children = (
 				E22137A826708D5B0039829D /* Cells */,
 				E221376B267052510039829D /* ListViewController.swift */,
+				E271FBC62671F5A600C88AC2 /* ListViewModel.swift */,
 				E221376D267052510039829D /* Main.storyboard */,
 			);
 			path = List;
@@ -491,8 +497,10 @@
 				E2213768267052510039829D /* AppDelegate.swift in Sources */,
 				E22137A3267060DE0039829D /* Beer.swift in Sources */,
 				E221376A267052510039829D /* SceneDelegate.swift in Sources */,
+				E271FBC72671F5A600C88AC2 /* ListViewModel.swift in Sources */,
 				E221379E267056280039829D /* BeerService.swift in Sources */,
 				E22137A726708D560039829D /* ListTableViewCell.swift in Sources */,
+				E271FBC22671E5DB00C88AC2 /* BeerServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
