@@ -17,8 +17,6 @@ class ListViewController: UIViewController {
     let disposeBag: DisposeBag = DisposeBag()
     var viewModel: ListViewModel!
     
-    var beers: [Beer] = [Beer]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.start()
@@ -28,9 +26,6 @@ class ListViewController: UIViewController {
     }
     
     private func setupUi() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         tableView.rx
             .itemSelected
             .asDriver()
@@ -41,11 +36,9 @@ class ListViewController: UIViewController {
     
     private func setupObserve() {
         viewModel.beers
-            .asDriver()
-            .drive(onNext: { [weak self] beers in
-                self?.beers = beers
-                self?.tableView.reloadData()
-            }).disposed(by: disposeBag)
+            .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: ListTableViewCell.self)) { _, beer, cell in
+                cell.bind(beer: beer)
+            }.disposed(by: disposeBag)
         viewModel.showDetailEvent
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] beer in
@@ -58,25 +51,4 @@ class ListViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 
-}
-
-extension ListViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ListTableViewCell {
-            cell.bind(beer: beers[indexPath.row])
-            return cell
-        }
-        
-        return ListTableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
 }

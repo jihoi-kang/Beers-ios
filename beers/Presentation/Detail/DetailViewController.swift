@@ -25,10 +25,8 @@ class DetailViewController: UIViewController {
     
     private func setupObserve() {
         viewModel.beer
-            .map({ beer in
-                beer.name
-            }).asDriver(onErrorDriveWith: Driver.empty())
-            .drive(titleLabel.rx.text)
+            .map { $0.name }
+            .bind(to: titleLabel.rx.text)
             .disposed(by: disposeBag)
     }
 

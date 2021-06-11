@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxRelay
+import RxCocoa
 
 class ListViewModel {
     
@@ -24,15 +25,10 @@ class ListViewModel {
     }
     
     func start() {
-        self.beerService.getBeers(page: 1, perPage: 20).asObservable()
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] beers in
-                guard let strongSelf = self else {
-                    return
-                }
-                
-                strongSelf.beers.accept(beers)
-            }).disposed(by: disposeBag)
+        self.beerService.getBeers(page: 1, perPage: 20)
+            .asObservable()
+            .bind(to: beers)
+            .disposed(by: disposeBag)
     }
     
     func onItemSelect(_ indexPath: IndexPath) {
