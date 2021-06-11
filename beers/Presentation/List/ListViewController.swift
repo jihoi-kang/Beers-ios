@@ -15,7 +15,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let disposeBag: DisposeBag = DisposeBag()
-    var viewModel: ListViewModel = ListViewModel(beerServiceType: BeerService())
+    var viewModel: ListViewModel!
     
     var beers: [Beer] = [Beer]()
     
@@ -30,6 +30,13 @@ class ListViewController: UIViewController {
     private func setupUi() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.rx
+            .itemSelected
+            .asDriver()
+            .drive(onNext: { [weak self] indexPath in
+                self?.viewModel.onItemSelect(indexPath)
+            }).disposed(by: disposeBag)
     }
     
     private func setupObserve() {
@@ -39,6 +46,16 @@ class ListViewController: UIViewController {
                 self?.beers = beers
                 self?.tableView.reloadData()
             }).disposed(by: disposeBag)
+        viewModel.showDetailEvent
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] beer in
+                self?.showDetail(beer)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func showDetail(_ beer: Beer) {
+        let vc = DiContainer.instance.container.resolve(DetailViewController.self, argument: beer)!
+        present(vc, animated: true, completion: nil)
     }
 
 }

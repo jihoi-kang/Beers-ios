@@ -16,6 +16,9 @@ target 'beers' do
   # Image
   pod 'SDWebImage'
 
+  # Di
+  pod 'Swinject'
+
   target 'beersTests' do
     inherit! :search_paths
     # Pods for testing

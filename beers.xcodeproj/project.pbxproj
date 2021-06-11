@@ -23,6 +23,10 @@
 		E22137A726708D560039829D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22137A626708D560039829D /* ListTableViewCell.swift */; };
 		E271FBC22671E5DB00C88AC2 /* BeerServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */; };
 		E271FBC72671F5A600C88AC2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC62671F5A600C88AC2 /* ListViewModel.swift */; };
+		E271FBC92672E7D100C88AC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC82672E7D100C88AC2 /* DetailViewController.swift */; };
+		E271FBCB2672E8B200C88AC2 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E271FBCA2672E8B200C88AC2 /* Detail.storyboard */; };
+		E271FBD12672F44A00C88AC2 /* DiContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBD02672F44A00C88AC2 /* DiContainer.swift */; };
+		E271FBD32672F54D00C88AC2 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBD22672F54D00C88AC2 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		E22137A626708D560039829D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServiceType.swift; sourceTree = "<group>"; };
 		E271FBC62671F5A600C88AC2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		E271FBC82672E7D100C88AC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E271FBCA2672E8B200C88AC2 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		E271FBD02672F44A00C88AC2 /* DiContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiContainer.swift; sourceTree = "<group>"; };
+		E271FBD22672F54D00C88AC2 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E738147930E1C8261EFC329A /* Pods_beers_beersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beers_beersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +147,7 @@
 		E2213766267052510039829D /* beers */ = {
 			isa = PBXGroup;
 			children = (
+				E271FBCF2672F43D00C88AC2 /* Di */,
 				E221379A267055FC0039829D /* Model */,
 				E2213799267054230039829D /* Resource */,
 				E2213797267053E20039829D /* Application */,
@@ -233,6 +242,9 @@
 		E22137A526708AF80039829D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				E271FBC82672E7D100C88AC2 /* DetailViewController.swift */,
+				E271FBD22672F54D00C88AC2 /* DetailViewModel.swift */,
+				E271FBCA2672E8B200C88AC2 /* Detail.storyboard */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -243,6 +255,14 @@
 				E22137A626708D560039829D /* ListTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		E271FBCF2672F43D00C88AC2 /* Di */ = {
+			isa = PBXGroup;
+			children = (
+				E271FBD02672F44A00C88AC2 /* DiContainer.swift */,
+			);
+			path = Di;
 			sourceTree = "<group>";
 		};
 		FFBB02BDE55CD8215F20E099 /* Frameworks */ = {
@@ -366,6 +386,7 @@
 				E2213774267052520039829D /* LaunchScreen.storyboard in Resources */,
 				E2213771267052520039829D /* Assets.xcassets in Resources */,
 				E221376F267052510039829D /* Main.storyboard in Resources */,
+				E271FBCB2672E8B200C88AC2 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,13 +514,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E271FBC92672E7D100C88AC2 /* DetailViewController.swift in Sources */,
 				E221376C267052510039829D /* ListViewController.swift in Sources */,
+				E271FBD12672F44A00C88AC2 /* DiContainer.swift in Sources */,
 				E2213768267052510039829D /* AppDelegate.swift in Sources */,
 				E22137A3267060DE0039829D /* Beer.swift in Sources */,
 				E221376A267052510039829D /* SceneDelegate.swift in Sources */,
 				E271FBC72671F5A600C88AC2 /* ListViewModel.swift in Sources */,
 				E221379E267056280039829D /* BeerService.swift in Sources */,
 				E22137A726708D560039829D /* ListTableViewCell.swift in Sources */,
+				E271FBD32672F54D00C88AC2 /* DetailViewModel.swift in Sources */,
 				E271FBC22671E5DB00C88AC2 /* BeerServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
