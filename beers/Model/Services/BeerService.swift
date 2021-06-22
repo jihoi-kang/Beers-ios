@@ -19,8 +19,9 @@ final class BeerService: BeerServiceType {
     
     // MARK: - Services
     func getBeers(page: Int, perPage: Int) -> Single<[Beer]> {
-        let url = "\(baseUrl)/v2/beers?page=\(page)&per_page=\(perPage)"
-        return Single<[Beer]>.create(subscribe: { observer in
+        return Single<[Beer]>.create { observer in
+            let url = "\(self.baseUrl)/v2/beers?page=\(page)&per_page=\(perPage)"
+            
             AF.request(url)
                 .validate()
                 .responseDecodable(of: [Beer].self, completionHandler: { response in
@@ -33,7 +34,7 @@ final class BeerService: BeerServiceType {
                 })
             
             return Disposables.create()
-        })
+        }
     }
     
 }

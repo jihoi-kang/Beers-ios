@@ -21,6 +21,7 @@
 		E221379E267056280039829D /* BeerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221379D267056280039829D /* BeerService.swift */; };
 		E22137A3267060DE0039829D /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22137A2267060DE0039829D /* Beer.swift */; };
 		E22137A726708D560039829D /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22137A626708D560039829D /* ListTableViewCell.swift */; };
+		E2488AB72681B5E700F21286 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2488AB62681B5E700F21286 /* Extensions.swift */; };
 		E271FBC22671E5DB00C88AC2 /* BeerServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */; };
 		E271FBC72671F5A600C88AC2 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC62671F5A600C88AC2 /* ListViewModel.swift */; };
 		E271FBC92672E7D100C88AC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271FBC82672E7D100C88AC2 /* DetailViewController.swift */; };
@@ -72,6 +73,7 @@
 		E221379D267056280039829D /* BeerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerService.swift; sourceTree = "<group>"; };
 		E22137A2267060DE0039829D /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		E22137A626708D560039829D /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		E2488AB62681B5E700F21286 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E271FBC12671E5DB00C88AC2 /* BeerServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerServiceType.swift; sourceTree = "<group>"; };
 		E271FBC62671F5A600C88AC2 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		E271FBC82672E7D100C88AC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		E2213766267052510039829D /* beers */ = {
 			isa = PBXGroup;
 			children = (
+				E2488AB52681B5D500F21286 /* Utils */,
 				E271FBCF2672F43D00C88AC2 /* Di */,
 				E221379A267055FC0039829D /* Model */,
 				E2213799267054230039829D /* Resource */,
@@ -255,6 +258,14 @@
 				E22137A626708D560039829D /* ListTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		E2488AB52681B5D500F21286 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E2488AB62681B5E700F21286 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E271FBCF2672F43D00C88AC2 /* Di */ = {
@@ -521,6 +532,7 @@
 				E22137A3267060DE0039829D /* Beer.swift in Sources */,
 				E221376A267052510039829D /* SceneDelegate.swift in Sources */,
 				E271FBC72671F5A600C88AC2 /* ListViewModel.swift in Sources */,
+				E2488AB72681B5E700F21286 /* Extensions.swift in Sources */,
 				E221379E267056280039829D /* BeerService.swift in Sources */,
 				E22137A726708D560039829D /* ListTableViewCell.swift in Sources */,
 				E271FBD32672F54D00C88AC2 /* DetailViewModel.swift in Sources */,

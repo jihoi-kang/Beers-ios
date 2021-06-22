@@ -41,7 +41,7 @@ class ListViewController: UIViewController {
     
     private func setupObserve() {
         viewModel.beers
-            .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: ListTableViewCell.self)) { _, beer, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: "ListTableViewCell", cellType: ListTableViewCell.self)) { _, beer, cell in
                 cell.bind(beer: beer)
             }.disposed(by: disposeBag)
         viewModel.showDetailEvent
