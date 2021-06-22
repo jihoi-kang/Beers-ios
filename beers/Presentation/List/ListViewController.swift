@@ -8,18 +8,18 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxSwiftExt
 
 class ListViewController: UIViewController {
-
+    
     // MARK: - View
     @IBOutlet weak var tableView: UITableView!
-
+    
     let disposeBag: DisposeBag = DisposeBag()
     var viewModel: ListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.start()
         
         setupUi()
         setupObserve()
@@ -31,6 +31,11 @@ class ListViewController: UIViewController {
             .asDriver()
             .drive(onNext: { [weak self] indexPath in
                 self?.viewModel.onItemSelect(indexPath)
+            }).disposed(by: disposeBag)
+        tableView.rx
+            .reachedBottom()
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.fetchBeers()
             }).disposed(by: disposeBag)
     }
     
@@ -50,5 +55,5 @@ class ListViewController: UIViewController {
         let vc = DiContainer.instance.container.resolve(DetailViewController.self, argument: beer)!
         present(vc, animated: true, completion: nil)
     }
-
+    
 }

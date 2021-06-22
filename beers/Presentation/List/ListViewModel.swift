@@ -20,14 +20,41 @@ class ListViewModel {
     
     let showDetailEvent: PublishRelay<Beer> = .init()
     
+    private var pageIndex = 1
+    private var isLoading: Bool = false
+    private let PER_PAGE = 20
+    
     init(beerServiceType: BeerServiceType) {
-        self.beerService = beerServiceType
+        beerService = beerServiceType
+        fetchBeers()
     }
     
-    func start() {
-        self.beerService.getBeers(page: 1, perPage: 20)
+    func fetchBeers() {
+        if isLoading { return }
+        
+        isLoading = true
+        beerService.getBeers(page: pageIndex, perPage: PER_PAGE)
             .asObservable()
-            .bind(to: beers)
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] event in
+                guard let self = self else { return }
+                self.isLoading = false
+                
+                switch event {
+                case .next(let beers):
+                    var newBeers = self.beers.value
+                    beers.forEach { beer in
+                        newBeers.append(beer)
+                    }
+                    
+                    self.pageIndex += 1
+                    self.beers.accept(newBeers)
+                case .error(let error):
+                    print("error occurred: \(error)")
+                case .completed:
+                    break
+                }
+            }
             .disposed(by: disposeBag)
     }
     

@@ -16,7 +16,7 @@ struct Beer: Decodable {
     let ebc: Double?
     let firstBrewed: String
     let foodPairing: [String]
-    let ibu: Double
+    let ibu: Double?
     let id: Int
     let imageUrl: String
     let name: String

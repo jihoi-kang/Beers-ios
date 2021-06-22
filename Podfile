@@ -12,6 +12,7 @@ target 'beers' do
 
   # Rx
   pod 'RxCocoa'
+  pod 'RxSwiftExt'
 
   # Image
   pod 'SDWebImage'

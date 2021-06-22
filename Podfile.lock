@@ -6,6 +6,14 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - RxSwiftExt (6.0.1):
+    - RxSwiftExt/Core (= 6.0.1)
+    - RxSwiftExt/RxCocoa (= 6.0.1)
+  - RxSwiftExt/Core (6.0.1):
+    - RxSwift (~> 6.0)
+  - RxSwiftExt/RxCocoa (6.0.1):
+    - RxCocoa (~> 6.0)
+    - RxSwiftExt/Core
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -14,6 +22,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - RxCocoa
+  - RxSwiftExt
   - SDWebImage
   - Swinject
 
@@ -23,6 +32,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxSwiftExt
     - SDWebImage
     - Swinject
 
@@ -31,9 +41,10 @@ SPEC CHECKSUMS:
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
 
-PODFILE CHECKSUM: 0520febea79197fb14f7faf3730e08b2457fec4c
+PODFILE CHECKSUM: 2c5f1d0f7f05eaca0c3b43349fb3a8b4ddc5c70f
 
 COCOAPODS: 1.10.1
